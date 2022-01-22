@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { format } from "date-fns";
 import { useSelector } from "react-redux";
 
@@ -11,12 +11,13 @@ import "./style.css";
 export default function Task() {
   const { reducers } = useSelector((state) => state);
   const [value, setValue] = useState("");
-
+  const input = useRef(null);
   const { handleAddTask, handleCompleteTask, handleDeleteTask } =
     useContext(Contexto);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    input.current.value = "";
   };
 
   var date = new Date();
@@ -50,6 +51,7 @@ export default function Task() {
         <form action="" onSubmit={handleSubmit}>
           <input
             type="text"
+            ref={input}
             name={value}
             onChange={(e) => setValue(e.target.value)}
           />
