@@ -28,24 +28,31 @@ export default function Task() {
         <h1>Tarefas do Dia</h1>
         <p>DIA: {format(date, "dd-MM-yyyy' -  hás 'HH:mm:ss")}</p>
         <ul id="task">
-          {reducers.task.map((item) => (
-            <li
-              key={item.id}
-              id={item.id}
-              className={item.status ? "active" : ""}
-            >
-              <input
-                type="checkbox"
-                checked={item.status}
-                onChange={() => handleCompleteTask(item.id)}
-              />
-              <span>{item.status ? <del>{item.text}</del> : item.text}</span>
+          {reducers.task.length > 0 ? (
+            reducers.task.map((item) => (
+              <li
+                key={item.id}
+                id={item.id}
+                className={item.status ? "active" : ""}
+              >
+                <input
+                  type="checkbox"
+                  checked={item.status}
+                  onChange={() => handleCompleteTask(item.id)}
+                />
+                <span>{item.status ? <del>{item.text}</del> : item.text}</span>
 
-              <button className="btn" onClick={() => handleDeleteTask(item.id)}>
-                x
-              </button>
-            </li>
-          ))}
+                <button
+                  className="btn"
+                  onClick={() => handleDeleteTask(item.id)}
+                >
+                  x
+                </button>
+              </li>
+            ))
+          ) : (
+            <li>Não há tarefas para ser exibidas</li>
+          )}
         </ul>
 
         <form action="" onSubmit={handleSubmit}>
