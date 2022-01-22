@@ -1,10 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { createContext } from "react";
-// import {
-//   handleAddTask,
-//   handleCompleteTask,
-//   handleDeleteTask,
-// } from "../hooks/useAddTask";
+
 import useAddTask from "../hooks/useAddTask";
 export const Contexto = createContext();
 
