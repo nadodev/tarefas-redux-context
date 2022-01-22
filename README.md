@@ -11,7 +11,7 @@
 ##criar uma pasta modules
 
 - Dentro da pasta modules, fica os modulo do reducers.
-- criar uma pasta cart dentro de modules, e um arquivo reducer, dentro de cart, nesse arquivo criar uma funcao e retornar um array vazio.
+- criar uma pasta task dentro de modules, e um arquivo reducer, dentro de task, nesse arquivo criar uma funcao e retornar um array vazio.
 - criar um arquivo rootReducer, dentro de modules, e importar o combineReducers, esse combineReducers, vai juntar todos os reducers, apos feito isso, dentro da index da pasta store, colocar como parametro o rootReducer.
 
 ##Acima alguns passos para configurar o redux, é os passos iniciais...
