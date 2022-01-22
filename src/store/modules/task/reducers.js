@@ -3,7 +3,6 @@ const initalState = {
 };
 
 const cart = (state = initalState, action) => {
-  console.log(state, action);
   switch (action.type) {
     case "ADD_TASKS": {
       return {
