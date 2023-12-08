@@ -5,10 +5,14 @@ const initalState = {
 const cart = (state = initalState, action) => {
   switch (action.type) {
     case "ADD_TASKS": {
-      return {
-        ...state,
-        task: [...state.task, action.payload],
-      };
+      if (action.payload === "") {
+        return state;
+      } else {
+        return {
+          ...state,
+          task: [...state.task, action.payload],
+        };
+      }
     }
     case "COMPLETE_TASK": {
       return {
