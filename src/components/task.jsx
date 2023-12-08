@@ -24,6 +24,7 @@ export default function Task() {
   const handleInputChange = (e) => {
     const newValue = e.target.value;
     setVInputValue(newValue);
+    input.current.value = "";
   };
   return (
     <>
