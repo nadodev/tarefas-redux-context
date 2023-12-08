@@ -5,14 +5,10 @@ const initalState = {
 const cart = (state = initalState, action) => {
   switch (action.type) {
     case "ADD_TASKS": {
-      if (action.payload === "") {
-        return state;
-      } else {
         return {
           ...state,
           task: [...state.task, action.payload],
         };
-      }
     }
     case "COMPLETE_TASK": {
       return {
@@ -29,6 +25,12 @@ const cart = (state = initalState, action) => {
       return {
         ...state,
         task: state.task.filter((item) => item.id !== action.payload.id),
+      };
+    }
+    case "CLEAR_TASKS": { // Adicionando um novo case para limpar as tarefas
+      return {
+        ...state,
+        task: [], 
       };
     }
     default: {

@@ -10,7 +10,7 @@ import "./style.css";
 
 export default function Task() {
   const { reducers } = useSelector((state) => state);
-  const [value, setValue] = useState("");
+  const [inputValue, setVInputValue] = useState("");
   const input = useRef(null);
   const { handleAddTask, handleCompleteTask, handleDeleteTask } =
     useContext(Contexto);
@@ -21,7 +21,10 @@ export default function Task() {
   };
 
   var date = new Date();
-
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    setVInputValue(newValue);
+  };
   return (
     <>
       <div className="container">
@@ -59,10 +62,11 @@ export default function Task() {
           <input
             type="text"
             ref={input}
-            name={value}
-            onChange={(e) => setValue(e.target.value)}
+            name="task"
+            value={inputValue}
+            onChange={handleInputChange}
           />
-          <button onClick={() => handleAddTask(value)}>Add Tasks</button>
+          <button onClick={() => handleAddTask(inputValue)}>Add Tasks</button>
         </form>
       </div>
     </>

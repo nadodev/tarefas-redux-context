@@ -12,7 +12,11 @@ export default function useAddTask() {
 
   const handleAddTask = useCallback(
     (value) => {
-      dispath(addTasks(value));
+      if (value.trim() !== '') {
+        dispath(addTasks(value));
+      }else {
+        alert("campo vazio")
+      }
     },
     [dispath]
   );

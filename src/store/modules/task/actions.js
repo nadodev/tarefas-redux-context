@@ -24,3 +24,10 @@ export function deleteTask(id) {
     },
   };
 }
+
+
+export function clearTasks() {
+  return {
+    type: "CLEAR_TASKS",
+  };
+}
